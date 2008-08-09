@@ -1,0 +1,61 @@
+Net-Squid-Auth-Plugin-SimpleLDAP
+
+This module will provide a simple LDAP plugin for the Net::Squid::Auth::Engine
+module. It will look up for users and theirs passwords in a LDAP server.
+
+In order to use it, you will need a configuration file containing at least:
+
+    plugin = SimpleLDAP
+    <SimpleLDAP>
+      server = myldap.server.somewhere
+      basedn = ou=mydept,o=mycompany.com
+      binddn = cn=joedoe
+      bindpw = secretpassword
+    </SimpleLDAP>
+
+Optionally, you may also use the paramenters:
+
+    objclass = inetOrgPerson (optional, defaults to "person")
+    userattr = uid (optional, defaults to "cn")
+    passattr = password (optional, defaults to "userPassword")
+
+within the <SimpleLDAP></SimpleLDAP> section.
+
+INSTALLATION
+
+To install this module, run the following commands:
+
+	perl Makefile.PL
+	make
+	make test
+	make install
+
+SUPPORT AND DOCUMENTATION
+
+After installing, you can find documentation for this module with the
+perldoc command.
+
+    perldoc Net::Squid::Auth::Plugin::SimpleLDAP
+
+You can also look for information at:
+
+    RT, CPAN's request tracker
+        http://rt.cpan.org/NoAuth/Bugs.html?Dist=Net-Squid-Auth-Plugin-SimpleLDAP
+
+    AnnoCPAN, Annotated CPAN documentation
+        http://annocpan.org/dist/Net-Squid-Auth-Plugin-SimpleLDAP
+
+    CPAN Ratings
+        http://cpanratings.perl.org/d/Net-Squid-Auth-Plugin-SimpleLDAP
+
+    Search CPAN
+        http://search.cpan.org/dist/Net-Squid-Auth-Plugin-SimpleLDAP
+
+
+COPYRIGHT AND LICENCE
+
+Copyright (C) 2008 Alexei Znamensky
+
+This program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
+
