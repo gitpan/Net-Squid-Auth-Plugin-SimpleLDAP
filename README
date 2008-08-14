@@ -1,25 +1,16 @@
 Net-Squid-Auth-Plugin-SimpleLDAP
 
-This module will provide a simple LDAP plugin for the Net::Squid::Auth::Engine
-module. It will look up for users and theirs passwords in a LDAP server.
+The README is used to introduce the module and provide instructions on
+how to install the module, any machine dependencies it may have (for
+example C compilers and installed libraries) and any other information
+that should be provided before the module is installed.
 
-In order to use it, you will need a configuration file containing at least:
+A README file is required for CPAN modules since CPAN extracts the README
+file from a module distribution so that people browsing the archive
+can use it to get an idea of the module's uses. It is usually a good idea
+to provide version information here so that people can decide whether
+fixes for the module are worth downloading.
 
-    plugin = SimpleLDAP
-    <SimpleLDAP>
-      server = myldap.server.somewhere
-      basedn = ou=mydept,o=mycompany.com
-      binddn = cn=joedoe
-      bindpw = secretpassword
-    </SimpleLDAP>
-
-Optionally, you may also use the paramenters:
-
-    objclass = inetOrgPerson (optional, defaults to "person")
-    userattr = uid (optional, defaults to "cn")
-    passattr = password (optional, defaults to "userPassword")
-
-within the <SimpleLDAP></SimpleLDAP> section.
 
 INSTALLATION
 
