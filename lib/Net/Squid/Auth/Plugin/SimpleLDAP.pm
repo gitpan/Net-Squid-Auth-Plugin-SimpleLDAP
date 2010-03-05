@@ -11,11 +11,11 @@ Net::Squid::Auth::Plugin::SimpleLDAP - A simple LDAP-based credentials validatio
 
 =head1 VERSION
 
-Version 0.01.05
+Version 0.1.9
 
 =cut
 
-use version; our $VERSION = qv('0.01.05');
+use version; our $VERSION = qv('0.1.9');
 
 =head1 SYNOPSIS
 
@@ -31,11 +31,11 @@ On C<$Config{InstallScript}/squid-auth-engine>'s configuration file:
     server = myldap.server.somewhere       # mandatory
 
     # connection options
-    <net_ldap_options>                     # optional section with
+    <NetLDAP>                              # optional section with
       port = N                             #   Net::LDAP's
       scheme = 'ldap' | 'ldaps' | 'ldapi'  #     constructor
       ...                                  #     options
-    </net_ldap_options>
+    </NetLDAP>
 
     # bind options
     binddn = cn=joedoe                     # mandatory
@@ -77,6 +77,18 @@ as parameter. Returns a plugin instance.
 sub new {
     my ( $class, $config ) = @_;
 
+    # some reasonable defaults
+    $config->{userattr} = 'cn' unless $config->{userattr};
+    $config->{passattr} = 'userPassword'
+      unless $config->{passattr};
+    $config->{objclass} = 'person' unless $config->{objclass};
+
+    # required information
+    foreach my $_ qw(binddn bindpw basedn server) {
+        croak "$/Missing config parameter \'" . $_ . "'"
+          unless $config->{$_};
+    }
+
     return unless UNIVERSAL::isa( $config, 'HASH' );
     return bless { _cfg => $config }, $class;
 }
@@ -93,24 +105,15 @@ receives no parameters and expect no return values.
 sub initialize {
     my $self = shift;
 
-    # some reasonable defaults
-    $self->{_cfg}{userattr} = 'cn' unless $self->{_cfg}{userattr};
-    $self->{_cfg}{passattr} = 'userPassword'
-      unless $self->{_cfg}{passattr};
-    $self->{_cfg}{objclass} = 'person' unless $self->{_cfg}{objclass};
-
-    # required information
-    foreach my $_ qw(binddn bindpw basedn server) {
-        croak "$/Missing config parameter \'" . $_ . "'" unless $self->{_cfg}{$_};
-    }
-
     # connect
-    $self->{ldap} = Net::LDAP->new( $self->{_cfg}{server}, $self->{_cfg}{net_ldap_options} )
+    $self->{ldap} =
+      Net::LDAP->new( $self->{_cfg}{server}, $self->{_cfg}{NetLDAP} )
       || croak "Cannot connect to LDAP server: " . $self->{_cfg}{server};
 
     # bind
-    my $mesg = $self->{ldap}->bind( "$self->{_cfg}{binddn}",
-        password => "$self->{_cfg}{bindpw}" );
+    my $mesg =
+      $self->{ldap}
+      ->bind( "$self->{_cfg}{binddn}", password => "$self->{_cfg}{bindpw}" );
     $mesg->code && croak "Error binding to LDAP server: " . $mesg->error;
 
     return;
@@ -146,7 +149,7 @@ sub _search {
 
     # get results
     my @entries = $mesg->entries();
-    my $result = {};
+    my $result  = {};
 
     my $entry = shift @entries;
     return $result unless $entry;
