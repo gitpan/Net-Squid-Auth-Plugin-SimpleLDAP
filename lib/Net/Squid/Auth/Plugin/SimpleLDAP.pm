@@ -11,11 +11,11 @@ Net::Squid::Auth::Plugin::SimpleLDAP - A simple LDAP-based credentials validatio
 
 =head1 VERSION
 
-Version 0.1.9
+Version 0.1.13
 
 =cut
 
-use version; our $VERSION = qv('0.1.9');
+use version; our $VERSION = qv('0.1.13');
 
 =head1 SYNOPSIS
 
@@ -84,9 +84,9 @@ sub new {
     $config->{objclass} = 'person' unless $config->{objclass};
 
     # required information
-    foreach my $_ qw(binddn bindpw basedn server) {
-        croak "$/Missing config parameter \'" . $_ . "'"
-          unless $config->{$_};
+    foreach my $required qw(binddn bindpw basedn server) {
+        croak "$/Missing config parameter \'" . $required . "'"
+          unless $config->{$required};
     }
 
     return unless UNIVERSAL::isa( $config, 'HASH' );
@@ -107,13 +107,13 @@ sub initialize {
 
     # connect
     $self->{ldap} =
-      Net::LDAP->new( $self->{_cfg}{server}, $self->{_cfg}{NetLDAP} )
-      || croak "Cannot connect to LDAP server: " . $self->{_cfg}{server};
+         Net::LDAP->new( $self->config('server'), $self->config('NetLDAP') )
+      || croak "Cannot connect to LDAP server: " . $self->config()->{server};
 
     # bind
     my $mesg =
       $self->{ldap}
-      ->bind( "$self->{_cfg}{binddn}", password => "$self->{_cfg}{bindpw}" );
+      ->bind( $self->config('binddn'), password => $self->config('bindpw') );
     $mesg->code && croak "Error binding to LDAP server: " . $mesg->error;
 
     return;
@@ -121,9 +121,9 @@ sub initialize {
 
 =head2 _search()
 
-Searches the LDAP server. It expects one parameter with a search string for the username.
-The search string must conform with the format used in LDAP queries, as defined in section 3
-of RFC 4515.
+Searches the LDAP server. It expects one parameter with a search string for
+the username. The search string must conform with the format used in LDAP
+queries, as defined in section 3 of RFC 4515.
 
 =cut
 
@@ -132,13 +132,13 @@ sub _search {
 
     # search
     my $mesg = $self->{ldap}->search(
-        base   => "$self->{_cfg}{basedn}",
+        base   => $self->config('basedn'),
         scope  => 'sub',
         filter => '(&(objectClass='
-          . $self->{_cfg}{objclass} . ')('
-          . $self->{_cfg}{userattr} . '='
+          . $self->config('objclass') . ')('
+          . $self->config('userattr') . '='
           . "$search" . '))',
-        attrs => [ $self->{_cfg}{userattr}, $self->{_cfg}{passattr} ],
+        attrs => [ $self->config('userattr'), $self->config('passattr') ],
     );
 
     # if errors
@@ -154,10 +154,10 @@ sub _search {
     my $entry = shift @entries;
     return $result unless $entry;
 
-    my $user = $entry->get_value( $self->{_cfg}{userattr} );
-    my $pw   = $entry->get_value( $self->{_cfg}{passattr} );
+    my $user = $entry->get_value( $self->config('userattr') );
+    my $pw   = $entry->get_value( $self->config('passattr') );
 
-    $result->{$user} = ${pw};
+    $result->{$user} = $pw;
 
     carp "Found more than 1 entry for user ($user)" if shift @entries;
 
@@ -178,6 +178,18 @@ sub is_valid {
     return 0 unless exists $result->{$username};
 
     return $result->{$username} eq $password;
+}
+
+=head2 config( $key )
+
+Accessor for a configuration setting given by key.
+
+=cut
+
+sub config {
+    my ( $self, $key ) = @_;
+
+    return $self->{_cfg}->{$key};
 }
 
 =head1 AUTHOR
@@ -203,7 +215,7 @@ Or take a look at the github site to be up to date:
 
 =over 4
 
-L<http://russoz.github.com/Net-Squid-Auth-Plugin-SimpleLDAP>
+L<http://github.com/russoz/Net-Squid-Auth-Plugin-SimpleLDAP>
 
 =back
 
