@@ -1,5 +1,9 @@
 Revision history for Net-Squid-Auth-Plugin-SimpleLDAP
 
+0.1.15  27.04.2010 DIST VERSION 0.1.15
+a61db8b More reasonable parameter checking in new()
+1f70681 Reduced one-level in the directory tree
+
 0.1.14  10.03.2010 DIST VERSION 0.1.14
 e9d43af Just run t/perlcritic.t if Russoz is in the house!
 

@@ -11,11 +11,11 @@ Net::Squid::Auth::Plugin::SimpleLDAP - A simple LDAP-based credentials validatio
 
 =head1 VERSION
 
-Version 0.1.14
+Version 0.1.15
 
 =cut
 
-use version; our $VERSION = qv('0.1.14');
+use version; our $VERSION = qv('0.1.15');
 
 =head1 SYNOPSIS
 
@@ -77,6 +77,8 @@ as parameter. Returns a plugin instance.
 sub new {
     my ( $class, $config ) = @_;
 
+    return unless UNIVERSAL::isa( $config, 'HASH' );
+
     # some reasonable defaults
     $config->{userattr} = 'cn' unless $config->{userattr};
     $config->{passattr} = 'userPassword'
@@ -89,7 +91,6 @@ sub new {
           unless $config->{$required};
     }
 
-    return unless UNIVERSAL::isa( $config, 'HASH' );
     return bless { _cfg => $config }, $class;
 }
 
