@@ -13,7 +13,7 @@ name: Net-Squid-Auth-Plugin-SimpleLDAP
 provides:
   Net::Squid::Auth::Plugin::SimpleLDAP:
     file: lib/Net/Squid/Auth/Plugin/SimpleLDAP.pm
-    version: v0.1.81
+    version: v0.1.82
 requires:
   Net::LDAP: 0
   Scalar::Util: 0
@@ -21,4 +21,4 @@ requires:
   version: 0
 resources:
   license: http://dev.perl.org/licenses/
-version: v0.1.81
+version: v0.1.82
