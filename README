@@ -2,6 +2,9 @@ NAME
     Net::Squid::Auth::Plugin::SimpleLDAP - A simple LDAP-based credentials
     validation plugin for Net::Squid::Auth::Engine
 
+VERSION
+    version 0.1.82_01
+
 SYNOPSIS
     If you're a system administrator trying to use Net::Squid::Auth::Engine
     to validate your user's credentials using a LDAP server as a credentials
@@ -50,7 +53,7 @@ SYNOPSIS
     how it works. It may give you ideas about how to implement other plugin
     modules for Net::Squid::Auth::Engine.
 
-FUNCTIONS
+METHODS
   new( $config_hash )
     Constructor. Expects a hash reference with all the configuration under
     the section *<SimpleLDAP>* in the
@@ -77,17 +80,6 @@ FUNCTIONS
 
   config( $key )
     Accessor for a configuration setting given by key.
-
-AUTHOR
-    Alexei Znamensky, "<russoz at cpan.org>"
-
-BUGS
-    Please report any bugs or feature requests to
-    "bug-net-squid-auth-plugin-simpleldap at rt.cpan.org", or through the
-    web interface at
-    <http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Net-Squid-Auth-Plugin-Si
-    mpleLDAP>. I will be notified, and then you'll automatically be notified
-    of progress on your bug as I make changes.
 
 SUPPORT
     You can find documentation for this module with the perldoc command.
@@ -140,9 +132,12 @@ ACKNOWLEDGEMENTS
 
     "Only a master of Perl, Fields"
 
-COPYRIGHT & LICENSE
-    Copyright 2008,2010 Alexei Znamensky, all rights reserved.
+AUTHOR
+    Alexei Znamensky <russoz@cpan.org>
 
-    This program is free software; you can redistribute it and/or modify it
-    under the same terms as Perl itself.
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2011 by Alexei Znamensky.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
 
