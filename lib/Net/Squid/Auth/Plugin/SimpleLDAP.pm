@@ -1,14 +1,15 @@
 package Net::Squid::Auth::Plugin::SimpleLDAP;
 
-# ABSTRACT: A simple LDAP-based credentials validation plugin for Net::Squid::Auth::Engine
-
 use warnings;
 use strict;
-use Carp;
-use Net::LDAP;
-use Scalar::Util qw/reftype/;
 
-our $VERSION = '0.1.82_01';    # VERSION
+# ABSTRACT: A simple LDAP-based credentials validation plugin for Net::Squid::Auth::Engine
+
+our $VERSION = '0.1.83'; # VERSION
+
+use Carp;
+use Net::LDAP 0.4001;
+use Scalar::Util qw/reftype/;
 
 sub new {
     my ( $class, $config ) = @_;
@@ -107,9 +108,11 @@ sub config {
 
 1;    # End of Net::Squid::Auth::Plugin::SimpleLDAP
 
-__END__
+
 
 =pod
+
+=encoding utf-8
 
 =head1 NAME
 
@@ -117,7 +120,7 @@ Net::Squid::Auth::Plugin::SimpleLDAP - A simple LDAP-based credentials validatio
 
 =head1 VERSION
 
-version 0.1.82_01
+version 0.1.83
 
 =head1 SYNOPSIS
 
@@ -199,53 +202,24 @@ as parameters and returns a boolean indicating if the credentials are valid
 
 Accessor for a configuration setting given by key.
 
-=head1 SUPPORT
-
-You can find documentation for this module with the perldoc command.
-
-    perldoc Net::Squid::Auth::Plugin::SimpleLDAP
-
-Or take a look at the github site to be up to date:
+=head1 SEE ALSO
 
 =over 4
 
-L<http://github.com/russoz/Net-Squid-Auth-Plugin-SimpleLDAP>
+=item *
+L<Net::Squid::Auth::Engine>, L<Net::LDAP>, L<Scalar::Util>
 
-=back
-
-You can also look for information at:
-
-=over 4
-
-=item * RFC 4515 - Lightweight Directory Access Protocol (LDAP): String Representation of Search Filters
+=item *
+RFC 4515 - Lightweight Directory Access Protocol (LDAP): String Representation of Search Filters
 
 L<http://www.faqs.org/rfcs/rfc4515.html>
 
-=item * RFC 4519 - Lightweight Directory Access Protocol (LDAP): Schema for User Applications
+=item *
+RFC 4519 - Lightweight Directory Access Protocol (LDAP): Schema for User Applications
 
 L<http://www.faqs.org/rfcs/rfc4519.html>
 
-=item * RT: CPAN's request tracker
-
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Net-Squid-Auth-Plugin-SimpleLDAP>
-
-=item * AnnoCPAN: Annotated CPAN documentation
-
-L<http://annocpan.org/dist/Net-Squid-Auth-Plugin-SimpleLDAP>
-
-=item * CPAN Ratings
-
-L<http://cpanratings.perl.org/d/Net-Squid-Auth-Plugin-SimpleLDAP>
-
-=item * Search CPAN
-
-L<http://search.cpan.org/dist/Net-Squid-Auth-Plugin-SimpleLDAP>
-
 =back
-
-=head1 SEE ALSO
-
-L<Net::Squid::Auth::Engine>, L<Net::LDAP>, L<Scalar::Util>
 
 =head1 ACKNOWLEDGEMENTS
 
@@ -268,4 +242,142 @@ This software is copyright (c) 2011 by Alexei Znamensky.
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
+=for :stopwords cpan testmatrix url annocpan anno bugtracker rt cpants kwalitee diff irc mailto metadata placeholders
+
+=head1 SUPPORT
+
+=head2 Perldoc
+
+You can find documentation for this module with the perldoc command.
+
+  perldoc Net::Squid::Auth::Plugin::SimpleLDAP
+
+=head2 Websites
+
+The following websites have more information about this module, and may be of help to you. As always,
+in addition to those websites please use your favorite search engine to discover more resources.
+
+=over 4
+
+=item *
+
+Search CPAN
+
+The default CPAN search engine, useful to view POD in HTML format.
+
+L<http://search.cpan.org/dist/Net-Squid-Auth-Plugin-SimpleLDAP>
+
+=item *
+
+AnnoCPAN
+
+The AnnoCPAN is a website that allows community annonations of Perl module documentation.
+
+L<http://annocpan.org/dist/Net-Squid-Auth-Plugin-SimpleLDAP>
+
+=item *
+
+CPAN Ratings
+
+The CPAN Ratings is a website that allows community ratings and reviews of Perl modules.
+
+L<http://cpanratings.perl.org/d/Net-Squid-Auth-Plugin-SimpleLDAP>
+
+=item *
+
+CPAN Forum
+
+The CPAN Forum is a web forum for discussing Perl modules.
+
+L<http://cpanforum.com/dist/Net-Squid-Auth-Plugin-SimpleLDAP>
+
+=item *
+
+CPANTS
+
+The CPANTS is a website that analyzes the Kwalitee ( code metrics ) of a distribution.
+
+L<http://cpants.perl.org/dist/overview/Net-Squid-Auth-Plugin-SimpleLDAP>
+
+=item *
+
+CPAN Testers
+
+The CPAN Testers is a network of smokers who run automated tests on uploaded CPAN distributions.
+
+L<http://www.cpantesters.org/distro/N/Net-Squid-Auth-Plugin-SimpleLDAP>
+
+=item *
+
+CPAN Testers Matrix
+
+The CPAN Testers Matrix is a website that provides a visual way to determine what Perls/platforms PASSed for a distribution.
+
+L<http://matrix.cpantesters.org/?dist=Net-Squid-Auth-Plugin-SimpleLDAP>
+
+=back
+
+=head2 Internet Relay Chat
+
+You can get live help by using IRC ( Internet Relay Chat ). If you don't know what IRC is,
+please read this excellent guide: L<http://en.wikipedia.org/wiki/Internet_Relay_Chat>. Please
+be courteous and patient when talking to us, as we might be busy or sleeping! You can join
+those networks/channels and get help:
+
+=over 4
+
+=item *
+
+irc.perl.org
+
+You can connect to the server at 'irc.perl.org' and join this channel: #sao-paulo.pm to get help.
+
+=back
+
+=head1 BUGS AND LIMITATIONS
+
+No bugs have been reported.
+
+Please report any bugs or feature requests through the web interface at
+L<http://github.com/russoz/Net-Squid-Auth-Plugin-SimpleLDAP/issues>.
+
+=head1 AVAILABILITY
+
+The latest version of this module is available from the Comprehensive Perl
+Archive Network (CPAN). Visit L<http://www.perl.com/CPAN/> to find a CPAN
+site near you, or see L<http://search.cpan.org/dist/Net-Squid-Auth-Plugin-SimpleLDAP/>.
+
+The development version lives at L<http://github.com/russoz/Net-Squid-Auth-Plugin-SimpleLDAP>
+and may be cloned from L<git://github.com/russoz/Net-Squid-Auth-Plugin-SimpleLDAP.git>.
+Instead of sending patches, please fork this project using the standard
+git and github infrastructure.
+
+=head1 DISCLAIMER OF WARRANTY
+
+BECAUSE THIS SOFTWARE IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY
+FOR THE SOFTWARE, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT
+WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER
+PARTIES PROVIDE THE SOFTWARE "AS IS" WITHOUT WARRANTY OF ANY KIND,
+EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE
+SOFTWARE IS WITH YOU. SHOULD THE SOFTWARE PROVE DEFECTIVE, YOU ASSUME
+THE COST OF ALL NECESSARY SERVICING, REPAIR, OR CORRECTION.
+
+IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
+WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR
+REDISTRIBUTE THE SOFTWARE AS PERMITTED BY THE ABOVE LICENCE, BE LIABLE
+TO YOU FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL, OR
+CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE
+SOFTWARE (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING
+RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A
+FAILURE OF THE SOFTWARE TO OPERATE WITH ANY OTHER SOFTWARE), EVEN IF
+SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH
+DAMAGES.
+
 =cut
+
+
+__END__
+
+

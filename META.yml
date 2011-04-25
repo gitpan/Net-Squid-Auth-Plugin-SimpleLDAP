@@ -6,12 +6,11 @@ build_requires:
   English: 0
   File::Find: 0
   File::Temp: 0
-  Test::More: 0.94
-  perl: 5.004
+  Test::More: 0.88
 configure_requires:
   ExtUtils::MakeMaker: 6.31
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.200004, CPAN::Meta::Converter version 2.110440'
+generated_by: 'Dist::Zilla version 4.200004, CPAN::Meta::Converter version 2.110930'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -19,9 +18,10 @@ meta-spec:
 name: Net-Squid-Auth-Plugin-SimpleLDAP
 requires:
   Carp: 0
-  Net::LDAP: 0
+  Net::LDAP: 0.4001
+  Net::Squid::Auth::Engine: 0
   Scalar::Util: 0
 resources:
   bugtracker: http://github.com/russoz/Net-Squid-Auth-Plugin-SimpleLDAP/issues
   repository: git://github.com/russoz/Net-Squid-Auth-Plugin-SimpleLDAP.git
-version: 0.1.82_01
+version: 0.1.83

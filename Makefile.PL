@@ -15,8 +15,7 @@ my %WriteMakefileArgs = (
     'English' => '0',
     'File::Find' => '0',
     'File::Temp' => '0',
-    'Test::More' => '0.94',
-    'perl' => '5.004'
+    'Test::More' => '0.88'
   },
   'CONFIGURE_REQUIRES' => {
     'ExtUtils::MakeMaker' => '6.31'
@@ -27,10 +26,11 @@ my %WriteMakefileArgs = (
   'NAME' => 'Net::Squid::Auth::Plugin::SimpleLDAP',
   'PREREQ_PM' => {
     'Carp' => '0',
-    'Net::LDAP' => '0',
+    'Net::LDAP' => '0.4001',
+    'Net::Squid::Auth::Engine' => '0',
     'Scalar::Util' => '0'
   },
-  'VERSION' => '0.1.82_01',
+  'VERSION' => '0.1.83',
   'test' => {
     'TESTS' => 't/*.t'
   }
