@@ -4,35 +4,37 @@ use warnings;
 
 
 
-use ExtUtils::MakeMaker 6.31;
+use ExtUtils::MakeMaker 6.30;
 
 
 
 my %WriteMakefileArgs = (
-  'ABSTRACT' => 'A simple LDAP-based credentials validation plugin for Net::Squid::Auth::Engine',
-  'AUTHOR' => 'Alexei Znamensky <russoz@cpan.org>',
-  'BUILD_REQUIRES' => {
-    'English' => '0',
-    'File::Find' => '0',
-    'File::Temp' => '0',
-    'Test::More' => '0.88'
+  "ABSTRACT" => "A simple LDAP-based credentials validation plugin for Net::Squid::Auth::Engine",
+  "AUTHOR" => "Alexei Znamensky <russoz\@cpan.org>",
+  "BUILD_REQUIRES" => {
+    "File::Find" => 0,
+    "File::Temp" => 0,
+    "Test::More" => "0.88",
+    "Test::UseAllModules" => 0
   },
-  'CONFIGURE_REQUIRES' => {
-    'ExtUtils::MakeMaker' => '6.31'
+  "CONFIGURE_REQUIRES" => {
+    "ExtUtils::MakeMaker" => "6.30"
   },
-  'DISTNAME' => 'Net-Squid-Auth-Plugin-SimpleLDAP',
-  'EXE_FILES' => [],
-  'LICENSE' => 'perl',
-  'NAME' => 'Net::Squid::Auth::Plugin::SimpleLDAP',
-  'PREREQ_PM' => {
-    'Carp' => '0',
-    'Net::LDAP' => '0.4001',
-    'Net::Squid::Auth::Engine' => '0',
-    'Scalar::Util' => '0'
+  "DISTNAME" => "Net-Squid-Auth-Plugin-SimpleLDAP",
+  "EXE_FILES" => [],
+  "LICENSE" => "perl",
+  "NAME" => "Net::Squid::Auth::Plugin::SimpleLDAP",
+  "PREREQ_PM" => {
+    "Carp" => 0,
+    "Net::LDAP" => "0.4001",
+    "Net::Squid::Auth::Engine" => 0,
+    "Scalar::Util" => 0,
+    "strict" => 0,
+    "warnings" => 0
   },
-  'VERSION' => '0.1.83',
-  'test' => {
-    'TESTS' => 't/*.t'
+  "VERSION" => "0.1.84",
+  "test" => {
+    "TESTS" => "t/*.t"
   }
 );
 

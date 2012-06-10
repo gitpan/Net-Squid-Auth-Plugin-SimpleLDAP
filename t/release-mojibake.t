@@ -10,6 +10,8 @@ BEGIN {
 
 use Test::More;
 
-eval "use Test::CPAN::Meta";
-plan skip_all => "Test::CPAN::Meta required for testing META.yml" if $@;
-meta_yaml_ok();
+eval 'use Test::Mojibake';
+plan skip_all => 'Test::Mojibake required for source encoding testing'
+  if $@;
+
+all_files_encoding_ok();

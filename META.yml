@@ -3,14 +3,14 @@ abstract: 'A simple LDAP-based credentials validation plugin for Net::Squid::Aut
 author:
   - 'Alexei Znamensky <russoz@cpan.org>'
 build_requires:
-  English: 0
   File::Find: 0
   File::Temp: 0
   Test::More: 0.88
+  Test::UseAllModules: 0
 configure_requires:
-  ExtUtils::MakeMaker: 6.31
+  ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.200004, CPAN::Meta::Converter version 2.110930'
+generated_by: 'Dist::Zilla version 4.300017, CPAN::Meta::Converter version 2.120921'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -21,7 +21,9 @@ requires:
   Net::LDAP: 0.4001
   Net::Squid::Auth::Engine: 0
   Scalar::Util: 0
+  strict: 0
+  warnings: 0
 resources:
-  bugtracker: http://github.com/russoz/Net-Squid-Auth-Plugin-SimpleLDAP/issues
-  repository: git://github.com/russoz/Net-Squid-Auth-Plugin-SimpleLDAP.git
-version: 0.1.83
+  homepage: https://github.com/russoz/Net-Squid-Auth-Plugin-SimpleLDAP
+  repository: https://github.com/russoz/Net-Squid-Auth-Plugin-SimpleLDAP.git
+version: 0.1.84

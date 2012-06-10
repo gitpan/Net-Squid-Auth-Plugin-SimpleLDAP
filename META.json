@@ -4,7 +4,7 @@
       "Alexei Znamensky <russoz@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.200004, CPAN::Meta::Converter version 2.110930",
+   "generated_by" : "Dist::Zilla version 4.300017, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "perl_5"
    ],
@@ -16,37 +16,38 @@
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : "6.31"
+            "ExtUtils::MakeMaker" : "6.30"
          }
       },
       "runtime" : {
          "requires" : {
-            "Carp" : 0,
+            "Carp" : "0",
             "Net::LDAP" : "0.4001",
-            "Net::Squid::Auth::Engine" : 0,
-            "Scalar::Util" : 0
+            "Net::Squid::Auth::Engine" : "0",
+            "Scalar::Util" : "0",
+            "strict" : "0",
+            "warnings" : "0"
          }
       },
       "test" : {
          "requires" : {
-            "English" : 0,
-            "File::Find" : 0,
-            "File::Temp" : 0,
-            "Test::More" : "0.88"
+            "File::Find" : "0",
+            "File::Temp" : "0",
+            "Test::More" : "0.88",
+            "Test::UseAllModules" : "0"
          }
       }
    },
    "release_status" : "stable",
    "resources" : {
-      "bugtracker" : {
-         "web" : "http://github.com/russoz/Net-Squid-Auth-Plugin-SimpleLDAP/issues"
-      },
+      "bugtracker" : {},
+      "homepage" : "https://github.com/russoz/Net-Squid-Auth-Plugin-SimpleLDAP",
       "repository" : {
          "type" : "git",
-         "url" : "git://github.com/russoz/Net-Squid-Auth-Plugin-SimpleLDAP.git",
-         "web" : "http://github.com/russoz/Net-Squid-Auth-Plugin-SimpleLDAP"
+         "url" : "https://github.com/russoz/Net-Squid-Auth-Plugin-SimpleLDAP.git",
+         "web" : "https://github.com/russoz/Net-Squid-Auth-Plugin-SimpleLDAP"
       }
    },
-   "version" : "0.1.83"
+   "version" : "0.1.84"
 }
 

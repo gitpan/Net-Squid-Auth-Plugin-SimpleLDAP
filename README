@@ -3,7 +3,7 @@ NAME
     validation plugin for Net::Squid::Auth::Engine
 
 VERSION
-    version 0.1.83
+    version 0.1.84
 
 SYNOPSIS
     If you're a system administrator trying to use Net::Squid::Auth::Engine
@@ -81,19 +81,6 @@ METHODS
   config( $key )
     Accessor for a configuration setting given by key.
 
-SEE ALSO
-    *   Net::Squid::Auth::Engine, Net::LDAP, Scalar::Util
-
-    *   RFC 4515 - Lightweight Directory Access Protocol (LDAP): String
-        Representation of Search Filters
-
-        <http://www.faqs.org/rfcs/rfc4515.html>
-
-    *   RFC 4519 - Lightweight Directory Access Protocol (LDAP): Schema for
-        User Applications
-
-        <http://www.faqs.org/rfcs/rfc4519.html>
-
 ACKNOWLEDGEMENTS
     Luis "Fields" Motta Campos "<lmc at cpan.org>", who could now say:
 
@@ -103,15 +90,6 @@ ACKNOWLEDGEMENTS
     To what I'd reply:
 
     "Only a master of Perl, Fields"
-
-AUTHOR
-    Alexei Znamensky <russoz@cpan.org>
-
-COPYRIGHT AND LICENSE
-    This software is copyright (c) 2011 by Alexei Znamensky.
-
-    This is free software; you can redistribute it and/or modify it under
-    the same terms as the Perl 5 programming language system itself.
 
 SUPPORT
   Perldoc
@@ -132,7 +110,7 @@ SUPPORT
 
     *   AnnoCPAN
 
-        The AnnoCPAN is a website that allows community annonations of Perl
+        The AnnoCPAN is a website that allows community annotations of Perl
         module documentation.
 
         <http://annocpan.org/dist/Net-Squid-Auth-Plugin-SimpleLDAP>
@@ -168,11 +146,15 @@ SUPPORT
 
     *   CPAN Testers Matrix
 
-        The CPAN Testers Matrix is a website that provides a visual way to
-        determine what Perls/platforms PASSed for a distribution.
+        The CPAN Testers Matrix is a website that provides a visual overview
+        of the test results for a distribution on various Perls/platforms.
 
         <http://matrix.cpantesters.org/?dist=Net-Squid-Auth-Plugin-SimpleLDA
         P>
+
+  Email
+    You can email the author of this module at "RUSSOZ at cpan.org" asking
+    for help with any problems you have.
 
   Internet Relay Chat
     You can get live help by using IRC ( Internet Relay Chat ). If you don't
@@ -184,26 +166,38 @@ SUPPORT
     *   irc.perl.org
 
         You can connect to the server at 'irc.perl.org' and join this
-        channel: #sao-paulo.pm to get help.
+        channel: #sao-paulo.pm then talk to this person for help: russoz.
+
+  Bugs / Feature Requests
+    Please report any bugs or feature requests by email to
+    "bug-net-squid-auth-plugin-simpleldap at rt.cpan.org", or through the
+    web interface at
+    <http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Net-Squid-Auth-Plugin-Si
+    mpleLDAP>. You will be automatically notified of any progress on the
+    request by the system.
+
+  Source Code
+    The code is open to the world, and available for you to hack on. Please
+    feel free to browse it and play with it, or whatever. If you want to
+    contribute patches, please send me a diff or prod me to pull from your
+    repository :)
+
+    <https://github.com/russoz/Net-Squid-Auth-Plugin-SimpleLDAP>
+
+      git clone https://github.com/russoz/Net-Squid-Auth-Plugin-SimpleLDAP.git
+
+AUTHOR
+    Alexei Znamensky <russoz@cpan.org>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2012 by Alexei Znamensky.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
 
 BUGS AND LIMITATIONS
-    No bugs have been reported.
-
-    Please report any bugs or feature requests through the web interface at
-    <http://github.com/russoz/Net-Squid-Auth-Plugin-SimpleLDAP/issues>.
-
-AVAILABILITY
-    The latest version of this module is available from the Comprehensive
-    Perl Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a
-    CPAN site near you, or see
-    <http://search.cpan.org/dist/Net-Squid-Auth-Plugin-SimpleLDAP/>.
-
-    The development version lives at
-    <http://github.com/russoz/Net-Squid-Auth-Plugin-SimpleLDAP> and may be
-    cloned from
-    <git://github.com/russoz/Net-Squid-Auth-Plugin-SimpleLDAP.git>. Instead
-    of sending patches, please fork this project using the standard git and
-    github infrastructure.
+    You can make new bug reports, and view existing ones, through the web
+    interface at <http://rt.cpan.org>.
 
 DISCLAIMER OF WARRANTY
     BECAUSE THIS SOFTWARE IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY

@@ -18,4 +18,3 @@ check_failure( { binddn => 1, bindpw => 2, basedn => 3 } );
 check_failure( { binddn => 1, bindpw => 2, server => 4 } );
 check_failure( { binddn => 1, basedn => 3, server => 4 } );
 check_failure( { bindpw => 2, basedn => 3, server => 4 } );
-

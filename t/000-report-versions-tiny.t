@@ -49,14 +49,16 @@ sub pmver {
 }
 
 eval { $v .= pmver('Carp','any version') };
-eval { $v .= pmver('English','any version') };
-eval { $v .= pmver('ExtUtils::MakeMaker','6.31') };
+eval { $v .= pmver('ExtUtils::MakeMaker','6.30') };
 eval { $v .= pmver('File::Find','any version') };
 eval { $v .= pmver('File::Temp','any version') };
 eval { $v .= pmver('Net::LDAP','0.4001') };
 eval { $v .= pmver('Net::Squid::Auth::Engine','any version') };
 eval { $v .= pmver('Scalar::Util','any version') };
 eval { $v .= pmver('Test::More','0.88') };
+eval { $v .= pmver('Test::UseAllModules','any version') };
+eval { $v .= pmver('strict','any version') };
+eval { $v .= pmver('warnings','any version') };
 
 
 
